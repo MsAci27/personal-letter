@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Message</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #f4f1ee;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 250vh;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 70%;
+      margin: 20px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #7f5af0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #6243c3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .message-box {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .message-box p {
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Input Section -->
+    <div id="input-section">
+      <h1>Hi there 🌸</h1>
+      <p>What's your name?</p>
+      <input type="text" id="nameInput" placeholder="Enter your name" />
+      <br />
+      <button onclick="validateName()">Read My Letter to You</button>
+      <p id="error-message" class="error"></p>
+    </div>
+
+    <!-- Note Section (visible only after correct name) -->
+    <div id="note-section" class="hidden">
+      <h1>👀 This Is for Your Eyes Only</h1>
+      <p>Please know that what follows is meant exclusively for you. Click below to proceed.</p>
+      <button onclick="showFinalLetter()">Proceed to Letter</button>
+    </div>
+
+    <!-- Letter Section -->
+    <div id="letter-section" class="message-box hidden">
+      <p id="letterContent"></p>
+    </div>
+  </div>
+
+  <script>
+    const allowedName = "Nyah"; // Change this to your desired name
+
+    function validateName() {
+      const nameInput = document.getElementById("nameInput").value.trim();
+      const errorMessage = document.getElementById("error-message");
+
+      if (!nameInput) {
+        errorMessage.textContent = "Please enter your name.";
+        return;
+      }
+
+      if (nameInput.toLowerCase() !== allowedName.toLowerCase()) {
+        errorMessage.textContent = `Sorry, this letter is not for you`;
+        return;
+      }
+
+      // Name is valid
+      errorMessage.textContent = "";
+      document.getElementById("input-section").classList.add("hidden");
+      document.getElementById("note-section").classList.remove("hidden");
+    }
+
+    function showFinalLetter() {
+      const letter = `
+     Hi, 
+     
+     I just wanted to apologize again for what happened. Narealize ko lang din after ko mag message sayo na may nakalimutan pa akong ihingi ng pagpapatawad sayo. I also wanted to tell you something. I should’ve done this before pero natatakot lang din ako na baka mapasobra na naman pangingialam ko sa buhay nyo. Sorry ulit.
+
+     So… first, gusto ko magsorry kasi I think ako talaga yung bad influence sayo. Siguro hindi kayo magkakaroon ng idea ni Renz na gumawa nung hindi dapat kung hindi nyo napapansin or naiisip na ginagawa namin ni kuya mo. Yung mga patakas takas ba ni Ethan sa gabi and pagstay nya samin before. I know saksi ka sa lahat ng yon and I’m not proud na sakin mo natutunan yon. Ang daming consequences na dala nung pagrerebelde ko non and I think it’s too late na para warningan ka about dun. Yung mga hulihan or bukingan and pregnancy scares, napagdaanan din namin yon. Baka nga mas malala pa yung amin HWBHAAH, but that doesn’t matter. Gusto ko magsorry for not being a good example sa inyo bilang kami yung matanda. I should also apologize to Ethan, I think, coz I’m the one led him to that position. He has self-control and respect to himself and to me but I pushed his limits. And I think you won’t lose your V if Renz has that respect and self-control. But then again, I guess it’s not bad to lose our V…. atleast to the right person. 
+
+     Mag sosorry na agad din ako coz I heard na sinasaktan ka ni Renz. I’m sorry for meddling to your family and love affairs. This will be the last I swear. 
+     You know Renz is like a brother to us. Magkakapatid na turingan namin sa circle namin pero I know may ugali si Renz talaga na sakin ay kinakatakot ko. He’s a manipulator. Idk maybe kasi samin ako yung pinaka uto-uto kaya nagaganon nya ako pero beh…iba kasi talaga tactics nya. He’s a pro to his own game. Alam mo ba one time, before magpasukan nung G12. Diba lumabas na yung kung sino magkakaklase and saang section ka. Nung nakita ko akin medyo na sad ako kasi napalayo ako sa circle ko and sinabi ko kay Renz non (magkakasama kami non e) na ayoko kaklase si Ethan kasi I’m a type of person na na iinsecure ako pag kaklase ko crush ko and hindi ako makagalaw ng ayos kasi I know na puro kahihiyan pinapakita ko pag asa room ako pero oks nako ngayon don, very comfortable na ako kay Ethan kahit nakakahiya man mga ginagawa ko. Anyways, the point is… diba sinabi ko nga kay Renz yon…you know what he told me?No, “he lied to me”? Sabi nya sakin na nagpalipat lang din sya sa JMC nun so I should also just tell Sir na ayoko sa KU, as easy as that kasi nimessage nya lang din daw si Sir. You know at that moment paniwalang paniwala ako. I never doubt him until nalaman ko it’s just his tricks. I’m glad I stayed. Pero hindi ko malilimutan yon kasi nagmuka talaga akong tanga. Madami pa sya ganung pakulo pero hindi ko na alam if totoo pa yon. Idk how he is to you. If he’s capable of doing that sa mga friends nya ano pa kaya sayo. Oh and he also has this bad habit na he will borrow our phone then read messages without our consent. Dun sya nakakakuha ng pang blackmail samin or to whatever he’s going to do with that infos. He knows na din naman na alam namin ginagawa nya. But as a sister nya tinatanggap parin namin sya kasi maliit na bagay lang naman yon but after nung last away natin ang hirap na sakin na tanggapin pa sya ulit. 
+     Now, about dun sa talagang sasabihin ko. Disclaimer: you don’t have to rely on everything that I’m going to say. Sinabi ko kasi to sa isang friend ko and she thinks na I should tell you kahit papaano. 
+     Idk maybe if you’re looking for signs sa mga problems mo, baka makatulong to.
+     So… nagleave ako before sa gc namin nina Renz dahil sa inis ko sa kanya (ito yung last away natin). Pero after nung sakuna nagpa add ako kay Sandy kasi tingin nila wala ginawa masama si Renz, well mostly akin naman din yon so after ako magpa add nagcall kami and nagkwento ako. Nag ask ako sa kanila if worth it pa ba ituloy yung rs namin ni Ethan gawa nga nung nangyari. Naaawa ako nun kay Ethan if ever ituloy pa namin. Ang redflag ko sobra don and hindi ko talaga mapatawad sarili ko don. Then, blah blah…talking lang kami. Tapos si Renz beh, bumanat sya na “Tayo nalang  if sa 30 single parin tayo”. Like bruh, I told them na panget na biro yon pero tuloy parin sila sa asaran so binalewala ko nalang. We also joke something like that before with Keith and me pero pareho pa kami non na single, G11 pa ata yon. Pero nung galing na kay Renz, ang weird lang kasi how could he say that e kagagaling nya lang sa break up. He’s seem so serious about that.
+     I just want to say na I think hindi na worth it magstay sa ganung rs. Sa POV ko lang to ah. Hindi naman kasi nagkkwento si Renz samin. Magkkwento lang yan pag nagkwento ako nung ayaw ko na ugali ni Ethan. Gagatong lang yon na pareho kineme kayo, besides that wala na so ikaw parin magdedesisyon if maghhold ka sa rs nyo. Ik it’s hard lalo na madami na kayong pinagsamahan. These information na nabanggit ko is just something that I think you should know. Hindi ito para pigilan ka sa nararamdaman mo.
+
+     You are beautiful, Nyah. Tanda ko pa nung unang pasukan nung G11, hindi si Andrea, hindi si Audrey, hindi Marla yung nagandahan ako sa room. Kundi ikaw. Pinag uusapan ka namin nina Sandy nun kasi para kang si Ate Armina nun. Parehas kayong cool and simple, effortlessly beautiful. So if ever tingin mo mahihirapan ka nang makahanap ulit, just remember na madami naglolook up sayo. Kawalan nalang ni Renz yon.
+
+     Also… if need mo ng kausap, I’m very happy and open, sabi ka lang. And if need mo din ng matatakbuhan oks lang din sakin.
+     This is me being accountable for what I did. I would also be happy to be your friend. But it’s oki if ayaw mo hehe. Even me, idk if I also wanna be friend with myself.
+
+
+
+     Sincerely,
+     Veronica
+      `;
+
+      document.getElementById("note-section").classList.add("hidden");
+      document.getElementById("letterContent").innerText = letter;
+      document.getElementById("letter-section").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
